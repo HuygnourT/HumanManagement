@@ -132,10 +132,10 @@ public class QuanLyNhanKhau extends JFrame implements ActionListener,KeyListener
 		add(nam);
 		add(nu);
 		add(opt);
-//		btnGioiTinh = new ButtonGroup();
-//		btnGioiTinh.add(nam);
-//		btnGioiTinh.add(nu);
-//		btnGioiTinh.add(opt);
+		btnGioiTinh = new ButtonGroup();
+		btnGioiTinh.add(nam);
+		btnGioiTinh.add(nu);
+		btnGioiTinh.add(opt);
 		
 		//So dien thoai
 		lbSoDienThoai = new JLabel("Số điện thoại");
@@ -199,16 +199,16 @@ public class QuanLyNhanKhau extends JFrame implements ActionListener,KeyListener
 			record.add(txtSoDienThoai.getText());
 			tableRecords.add(record);
 			tableList.setModel(new DefaultTableModel(tableRecords,tableTitle));
-			JOptionPane.showMessageDialog(rootPane, "Thêm thành công");
+			//JOptionPane.showMessageDialog(rootPane, "Thêm thành công");
+			btnGioiTinh.clearSelection();
 			txtMaNhanKhau.setText("");
 			txtHoVaTen.setText("");
 			txtCmnd.setText("");
-			txtQueQuan.setText("");
+			//txtQueQuan.setText("");
 			txtNoiSinh.setText("");
 			txtDanToc.setText("");
 			txtNgheNghiep.setText("");
 			txtNgaySinh.setText("");
-			btnGioiTinh.clearSelection();
 			txtSoDienThoai.setText("");
 			txtMaNhanKhau.requestFocus();
 		}
