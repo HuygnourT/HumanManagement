@@ -38,7 +38,7 @@ public class QuanLyNhanKhau extends JFrame implements ActionListener,KeyListener
 	{
 		//1. Initialization
 		super("Human Management");
-		setLocation(100, 100);
+		setLocation(295, 0);
 		setSize(new Dimension(1000,500));
 		setLayout(null);
 		
