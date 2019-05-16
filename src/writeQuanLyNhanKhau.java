@@ -21,7 +21,6 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.util.CellReference;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import docFileExcel.Book;
 public class writeQuanLyNhanKhau {
 	private static final int COLUMN_INDEX_MANHANKHAU 	= 0;
 	private static final int COLUMN_INDEX_HOVATEN     	= 1;

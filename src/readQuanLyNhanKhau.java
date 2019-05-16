@@ -16,8 +16,6 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import docFileExcel.Book;
-
 public class readQuanLyNhanKhau {
 	private static final int COLUMN_INDEX_MANHANKHAU 	= 0;
 	private static final int COLUMN_INDEX_HOVATEN     	= 1;
