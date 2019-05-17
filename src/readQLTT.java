@@ -16,7 +16,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class readQuanLyNhanKhau {
+public class readQLTT {
 	private static final int COLUMN_INDEX_MANHANKHAU 	= 0;
 	private static final int COLUMN_INDEX_HOVATEN     	= 1;
 	private static final int COLUMN_INDEX_SOCMND      	= 2;
@@ -27,16 +27,6 @@ public class readQuanLyNhanKhau {
 	private static final int COLUMN_INDEX_NGAYSINH     	= 7;
 	private static final int COLUMN_INDEX_GIOITINH      = 8;
 	private static final int COLUMN_INDEX_SDT      		= 9;
-	private static final int COLUMN_INDEX_MATAMVANG     = 10;
-	private static final int COLUMN_INDEX_NGAYDI  		= 11;
-	private static final int COLUMN_INDEX_NGAYVE  		= 12;
-	private static final int COLUMN_INDEX_NOIDEN       	= 13;
-	private static final int COLUMN_INDEX_lIDO      	= 14;
-	private static final int COLUMN_INDEX_MATHUONGTRU   = 15;
-	private static final int COLUMN_INDEX_QUANHECHUHO   = 16;
-	private static final int COLUMN_INDEX_SOHOKHAU     	= 17;
-	private static final int COLUMN_INDEX_NGAYCHUYENDEN = 18;
-	private static final int COLUMN_INDEX_NOIOTRUOC     = 19;
 	public static void main(String[] args) throws IOException {
 		String excelFilePath = "C:/Users/Truong Huy/Desktop/demo.xlsx";
 		List<Person> persons = readExcel(excelFilePath);

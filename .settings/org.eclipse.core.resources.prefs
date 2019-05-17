@@ -1,4 +1,10 @@
 eclipse.preferences.version=1
 encoding//src/GiaoDien3Nut.java=UTF-8
+encoding//src/QLTT.java=UTF-8
+encoding//src/QLTV.java=UTF-8
 encoding//src/QuanLyNhanKhau.java=UTF-8
+encoding//src/console/PersonTamTru.java=UTF-8
+encoding//src/event/readQuanLyTamTru.java=UTF-8
+encoding//src/event/writeQuanLyTamTru.java=UTF-8
+encoding//src/gui/QuanLyTamTru.java=UTF-8
 encoding//src/writeQuanLyNhanKhau.java=UTF-8

@@ -298,7 +298,7 @@ public class QuanLyNhanKhau extends JFrame implements ActionListener,KeyListener
 		setLocation(100, 100);
 		setSize(new Dimension(1000,500));
 		setLayout(null);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		lbTieuDe = new JLabel("Quản Lý Nhân Khẩu Đà Nẵng");
 		lbTieuDe.setFont(new Font("Arial",3,16));
@@ -483,6 +483,7 @@ public class QuanLyNhanKhau extends JFrame implements ActionListener,KeyListener
 			tableRecords.add(record);
 			tableList.setModel(new DefaultTableModel(tableRecords,tableTitle));
 			JOptionPane.showMessageDialog(rootPane, "Thêm thành công");
+			//đặt các ô về mặc định
 			btnGioiTinh.clearSelection();
 			txtMaNhanKhau.setText("");
 			txtHoVaTen.setText("");
@@ -495,6 +496,7 @@ public class QuanLyNhanKhau extends JFrame implements ActionListener,KeyListener
 			txtSoDienThoai.setText("");
 			txtMaNhanKhau.requestFocus();
 		}
+		//Xóa 1 dòng
 		if(e.getSource() == btnDelete)
 		{
 			int iDongDaChon = tableList.getSelectedRow();

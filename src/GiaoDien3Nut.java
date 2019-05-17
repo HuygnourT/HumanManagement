@@ -55,6 +55,15 @@ public class GiaoDien3Nut extends JFrame implements ActionListener{
 		{
 			QuanLyNhanKhau tmp = new QuanLyNhanKhau();
 		}
+		if(e.getSource() == btnQLTT)
+		{
+			QLTT huy = new QLTT();
+		}
+		if(e.getSource() == btnQLTV)
+		{
+			QLTV huy = new QLTV();
+		}
+			
 			
 	}
 }

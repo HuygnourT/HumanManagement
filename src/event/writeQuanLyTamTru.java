@@ -1,3 +1,6 @@
+package event;
+
+import console.PersonTamTru;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -21,7 +24,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.util.CellReference;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class writeQuanLyNhanKhau {
+public class writeQuanLyTamTru {
 	private static final int COLUMN_INDEX_MANHANKHAU 	= 0;
 	private static final int COLUMN_INDEX_HOVATEN     	= 1;
 	private static final int COLUMN_INDEX_SOCMND      	= 2;
@@ -32,31 +35,16 @@ public class writeQuanLyNhanKhau {
 	private static final int COLUMN_INDEX_NGAYSINH     	= 7;
 	private static final int COLUMN_INDEX_GIOITINH      = 8;
 	private static final int COLUMN_INDEX_SDT      		= 9;
-	private static final int COLUMN_INDEX_MATAMVANG     = 10;
-	private static final int COLUMN_INDEX_NGAYDI  		= 11;
-	private static final int COLUMN_INDEX_NGAYVE  		= 12;
-	private static final int COLUMN_INDEX_NOIDEN       	= 13;
-	private static final int COLUMN_INDEX_LIDO      	= 14;
-	private static final int COLUMN_INDEX_MATHUONGTRU   = 15;
-	private static final int COLUMN_INDEX_QUANHECHUHO   = 16;
-	private static final int COLUMN_INDEX_SOHOKHAU     	= 17;
-	private static final int COLUMN_INDEX_NGAYCHUYENDEN = 18;
-	private static final int COLUMN_INDEX_NOIOTRUOC     = 19;
+	private static final int COLUMN_INDEX_MATHUONGTRU   = 10;
+	private static final int COLUMN_INDEX_SOHOKHAU     	= 11;
+	private static final int COLUMN_INDEX_QUANHECHUHO   = 12;
+	private static final int COLUMN_INDEX_NOIOTRUOC     = 13;
+	private static final int COLUMN_INDEX_NGAYCHUYENDEN = 14;
 	private static CellStyle cellStyleFormatNumber = null;
-	public static void main(String[] args) throws IOException {
-		
-		Person[] arOfPerson = new Person[3];
-		arOfPerson[0] = new Person("01","Huy","001","Da Nang","Đà Nẵng","Kinh","Sinh Viên","02/12/2000","Nam","0935031325");
-		arOfPerson[1] = new Person("02","Hải","002","Hue","Huế","Kinh","Sinh Viên","02/12/2000","Nam","0935031325");
-		arOfPerson[2] = new Person("03","Tuấn","003","Da Nang","Đà Nẵng","Kinh","Sinh Viên","02/12/2000","Nam","0935031325");
-		String excelFilePath = "D:/LearnJava/StudyingAtUniversity/HumanManagement/src/QuanLyNhanKhau.xlsx";
-		List<Person> persons = getPersons(arOfPerson,1);
-		writeExcel(persons,excelFilePath);
-	}
-	public static void writeExcel(List<Person> persons,String excelFilePath) throws IOException
+	public static void writeExcel(List<PersonTamTru> persons,String excelFilePath) throws IOException
 	{
 		Workbook workbook = getWorkbook(excelFilePath);
-		Sheet sheet = workbook.createSheet("Quản Lý Nhân Khẩu");
+		Sheet sheet = workbook.createSheet("Quản Lý Tạm Trú");
 		
 		int rowIndex = 0;
 		
@@ -65,7 +53,7 @@ public class writeQuanLyNhanKhau {
 		
 		rowIndex++;
 		
-		for(Person person : persons)
+		for(PersonTamTru person : persons)
 		{
 			// Create row
             Row row = sheet.createRow(rowIndex);
@@ -93,7 +81,7 @@ public class writeQuanLyNhanKhau {
         Cell cell = row.createCell(COLUMN_INDEX_MANHANKHAU);
         cell.setCellStyle(cellStyle);
         cell.setCellValue("Mã Nhân Khẩu");
- 
+        
         cell = row.createCell(COLUMN_INDEX_HOVATEN);
         cell.setCellStyle(cellStyle);
         cell.setCellValue("Họ Và Tên");
@@ -106,10 +94,6 @@ public class writeQuanLyNhanKhau {
         cell.setCellStyle(cellStyle);
         cell.setCellValue("Quê Quán");
  
-        cell = row.createCell(COLUMN_INDEX_NOISINH);
-        cell.setCellStyle(cellStyle);
-        cell.setCellValue("Nơi Sinh");
-        
         cell = row.createCell(COLUMN_INDEX_DANTOC);
         cell.setCellStyle(cellStyle);
         cell.setCellValue("Dân Tộc");
@@ -130,45 +114,25 @@ public class writeQuanLyNhanKhau {
         cell.setCellStyle(cellStyle);
         cell.setCellValue("Số Điện Thoại");
         
-        cell = row.createCell(COLUMN_INDEX_MATAMVANG);
-        cell.setCellStyle(cellStyle);
-        cell.setCellValue("Mã Tạm Vắng");
-        
-        cell = row.createCell(COLUMN_INDEX_NGAYDI);
-        cell.setCellStyle(cellStyle);
-        cell.setCellValue("Ngày Đi");
-        
-        cell = row.createCell(COLUMN_INDEX_NGAYVE);
-        cell.setCellStyle(cellStyle);
-        cell.setCellValue("Ngày Về");
-        
-        cell = row.createCell(COLUMN_INDEX_NOIDEN);
-        cell.setCellStyle(cellStyle);
-        cell.setCellValue("Nơi Đến");
-        
-        cell = row.createCell(COLUMN_INDEX_LIDO);
-        cell.setCellStyle(cellStyle);
-        cell.setCellValue("Lí Do");
-        
         cell = row.createCell(COLUMN_INDEX_MATHUONGTRU);
         cell.setCellStyle(cellStyle);
-        cell.setCellValue("Số Điện Thoại");
+        cell.setCellValue("Mã Thường Trú");
+        
+        cell = row.createCell(COLUMN_INDEX_SOHOKHAU);
+        cell.setCellStyle(cellStyle);
+        cell.setCellValue("Số Hộ Khẩu");
         
         cell = row.createCell(COLUMN_INDEX_QUANHECHUHO);
         cell.setCellStyle(cellStyle);
         cell.setCellValue("Quan Hệ Chủ Hộ");
         
-        cell = row.createCell(COLUMN_INDEX_SOHOKHAU);
+        cell = row.createCell(COLUMN_INDEX_NOIOTRUOC);
         cell.setCellStyle(cellStyle);
-        cell.setCellValue("Sổ Hổ Khẩu");
+        cell.setCellValue("Địa Chỉ Cũ");
         
         cell = row.createCell(COLUMN_INDEX_NGAYCHUYENDEN);
         cell.setCellStyle(cellStyle);
         cell.setCellValue("Ngày Chuyển Đến");
-        
-        cell = row.createCell(COLUMN_INDEX_NOIOTRUOC);
-        cell.setCellStyle(cellStyle);
-        cell.setCellValue("Nơi Ở Trước");
     }
     public static Workbook getWorkbook(String excelFilePath) throws IOException {
         Workbook workbook = null;
@@ -199,7 +163,7 @@ public class writeQuanLyNhanKhau {
         cellStyle.setBorderBottom(BorderStyle.THIN);
         return cellStyle;
     }
-    public static void writePerson(Person person, Row row) {
+    public static void writePerson(PersonTamTru person, Row row) {
         if (cellStyleFormatNumber == null) {
             // Format number
             short format = (short)BuiltinFormats.getBuiltinFormat("#,##0");
@@ -242,11 +206,43 @@ public class writeQuanLyNhanKhau {
         cell = row.createCell(COLUMN_INDEX_SDT);
         cell.setCellValue(person.getSdt());
         
+        cell = row.createCell(COLUMN_INDEX_MATHUONGTRU);
+        cell.setCellValue(person.getNoiSinh());
+        
+        cell = row.createCell(COLUMN_INDEX_DANTOC);
+        cell.setCellValue(person.getDanToc());
+        
+        cell = row.createCell(COLUMN_INDEX_NGHENGHIEP);
+        cell.setCellValue(person.getNgheNghiep());
+        
+        cell = row.createCell(COLUMN_INDEX_NGAYSINH);
+        cell.setCellValue(person.getNgaySinh());
+        
+        cell = row.createCell(COLUMN_INDEX_GIOITINH);
+        cell.setCellValue(person.getGioiTinh());
+        
+        cell = row.createCell(COLUMN_INDEX_SDT);
+        cell.setCellValue(person.getSdt());
+        
+        cell = row.createCell(COLUMN_INDEX_MATHUONGTRU);
+        cell.setCellValue(person.getMaThuongTru());
+        
+        cell = row.createCell(COLUMN_INDEX_SOHOKHAU);
+        cell.setCellValue(person.getSoHoKhau());
+        
+        cell = row.createCell(COLUMN_INDEX_QUANHECHUHO);
+        cell.setCellValue(person.getQuanHeChuHo());
+        
+        cell = row.createCell(COLUMN_INDEX_NOIOTRUOC);
+        cell.setCellValue(person.getNoiOTruoc());
+        
+        cell = row.createCell(COLUMN_INDEX_NGAYCHUYENDEN);
+        cell.setCellValue(person.getNgayChuyenDen());
         
     }
-    public static List<Person> getPersons(Person[] arrayOfPerson,int n)
+    public static List<PersonTamTru> getPersons(PersonTamTru[] arrayOfPerson,int n)
     {
-    	List<Person> listPerson = new ArrayList<>();
+    	List<PersonTamTru> listPerson = new ArrayList<>();
     	for(int i = 1 ; i < n+1 ; i++)
     	{
     		listPerson.add(arrayOfPerson[i-1]);
@@ -265,5 +261,12 @@ public class writeQuanLyNhanKhau {
             workbook.write(os);
         }
     }
+    public static void main(String[] args) throws IOException {
+    	PersonTamTru[] arOfPerson = new PersonTamTru[1];
+    	arOfPerson[0].setCmnd("0935");
+		String excelFilePath = "C:/Users/Truong Huy/Desktop/test.xlxs";
+		List<PersonTamTru> persons = getPersons(arOfPerson,1);
+		writeExcel(persons,excelFilePath);
+	}
 }
 
